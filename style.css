@@ -59,9 +59,5 @@ a:hover {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
-    grid-column-gap: 10px;
+    grid-column-gap: 50px;
 }
-.grid2 {
-    display: grid;
-    grid-template-columns: 50% 50%;
-  }
