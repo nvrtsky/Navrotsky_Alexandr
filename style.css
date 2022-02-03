@@ -1,0 +1,38 @@
+.container_common{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container_common_for_Sc_Ti{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.container_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+.container_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+a {
+    color:black;
+    text-decoration:none
+}
+a:active {
+    color:black;
+    text-decoration:none
+}
+a:visited {
+    color:black;
+    text-decoration:none
+}
+a:hover {
+    color: blue;
+    text-decoration: underline
+}
