@@ -8,12 +8,12 @@
     $date = date('d.m.Y H:i');
     echo $date;
     if(date('H') > 00 && date('H') < 06){
-        echo 'день';
-        echo "<link rel='stylesheet' type='text/css' href='styles/style.css'>";
-    }
-    else{
         echo 'ночь';
         echo "<link rel='stylesheet' type='text/css' href='styles/style_night.css'>";
+    }
+    else{
+        echo 'день';
+        echo "<link rel='stylesheet' type='text/css' href='styles/style.css'>";
     }
     ?>
 </head>
