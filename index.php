@@ -7,7 +7,7 @@
     <?php
     $date = date('d.m.Y H:i');
     echo $date;
-    if(date('i') > 00 && date('i') < 05){
+    if(date('H') > 00 && date('H') < 06){
         echo 'день';
         echo "<link rel='stylesheet' type='text/css' href='styles/style.css'>";
     }
