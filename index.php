@@ -18,17 +18,10 @@
     ?>
 </head>
 <body>
-<header class="header">
-    <section class="grid_header">
-        <section>
-            <div> <img src="images/164-1640714_user-symbol-interface-contact-phone-set-add-sign.png"></div>
-        </section>
-        <section class="grid_menu">
-            <div> <font size="6">Меню:</font></div>
-            <div> <font size="5"> <a href="mendeleev.html">Таблица Менделеева</a> </font> </div>
-            <div> <font size="5"> <a href="mendeleev.html">Пункт меню</a> </font> </div>
-        </section>
-    </section>
+<header>
+    <?php
+    include "header.php";
+    ?>
 </header>
 <main>
     <section class="grid_main">
@@ -118,5 +111,10 @@
     </section>
 
 </main>
+<footer>
+    <?php
+    include "footer.html";
+    ?>
+</footer>
 </body>
 </html>
