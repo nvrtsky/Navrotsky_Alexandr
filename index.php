@@ -5,16 +5,19 @@
     <title>Домашняя работа</title>
     <!--<link type="text/css" rel="stylesheet" href="styles/style.css">-->
     <?php
-    $date = date('d.m.Y H:i');
-    //echo $date;
-    if(date('H') > 00 && date('H') < 06){
-        //echo 'ночь';
-        echo "<link rel='stylesheet' type='text/css' href='styles/style_night.css'>";
+    function dateOrNight (){
+        $date = date('d.m.Y H:i');
+        //echo $date;
+        if(date('H') > 00 && date('H') < 06){
+            //echo ' ночь';
+            echo "<link rel='stylesheet' type='text/css' href='styles/style_night.css'>";
+        }
+        else{
+            //echo ' день';
+            echo "<link rel='stylesheet' type='text/css' href='styles/style.css'>";
+        }
     }
-    else{
-        //echo 'день';
-        echo "<link rel='stylesheet' type='text/css' href='styles/style.css'>";
-    }
+    dateOrNight();
     ?>
 </head>
 <body>
@@ -34,14 +37,15 @@
             <section>
                 <div>
                     <?php
-                        $name = 'Навроцкий Александр';
+                    function daysBeforeBirth ($name){
                         $today = date_create_from_format('Y-m-d', date('Y-m-d'));
                         $date_birth = date_create_from_format('Y-m-d', '1983-10-22');
                         $interval = date_diff($today, $date_birth);
                             echo $name . ", дата рождения: " . $date_birth->format('d.m.Y') .
                                 "<br>" . "Сегодня: " . $today ->format('d.m.Y').
                                 "<br>" . $interval->format('Я родился %R%a дней назад');
-
+                    }
+                    daysBeforeBirth("Навроцкий Александр");
                     ?>
                 </div>
             </section>
@@ -49,41 +53,28 @@
                 <section>
                     <div>
                         <?php
-                            $text_about = 'Информация о себе. Привет! Меня зовут Навроцкий Александр.';
-                            $text_about1 = ' Работаю в Факте 1,5 года техническим специалистом Битрикс24. То есть настраиваю ту часть Б24, которую можно сделать стандартным функционалом или конструктором бизнес-процессов и без программного кода.';
+                        function countVowel ($text_about, $text_about1, $count_vowel_letters/*счетчик гласных*/){
                             $array_vowel_letters = ['а', 'о', 'э', 'е', 'и', 'ы', 'у', 'ё', 'ю', 'я', 'А', 'О', 'Э', 'Е', 'И', 'Ы', 'У', 'Ё', 'Ю', 'Я'];
-                            $count_vowel_letters = 0;//счетчик гласных
                                 foreach ($array_vowel_letters as $value) {
-                                    $count_vowel_letters += (substr_count($text_about, $value)+substr_count($text_about1, $value));
-                                }
-                                    echo mb_substr('<p style="color: red">' . $text_about . '</p>', 0, 150) . "$text_about1" . "<br>" . "<br>" . "Количество гласных букв в этом разделе:" . $count_vowel_letters;
-                        //считаем кол-во слов:
+                                $count_vowel_letters += (substr_count($text_about, $value)+substr_count($text_about1, $value));
+                            }
+                                echo mb_substr('<p style="color: red">' . $text_about . '</p>', 0, 150) . "$text_about1" . "<br>" . "<br>" . "Количество гласных букв в этом разделе:" . $count_vowel_letters;
+                            //считаем кол-во слов:
                             $array_text_about = explode(' ', $text_about);//преобразовываем строку в массив
                             $array_text_about1 = explode(' ', $text_about1);
                                 foreach ($array_text_about as $key1 => $value) {//считаем кол-во элементов
-                                    foreach ($array_text_about1 as $key2 => $value);
-                                }
-                                    echo "<br>" . "<br>" . "Количество слов в этом разделе:" . $key1+$key2+2;
+                                foreach ($array_text_about1 as $key2 => $value);
+                            }
+                                echo "<br>" . "<br>" . "Количество слов в этом разделе:" . $key1+$key2+1;
+                        }
+                        countVowel('Информация о себе. Привет! Меня зовут Навроцкий Александр.', ' Работаю в Факте 1,5 года техническим специалистом Битрикс24. То есть настраиваю ту часть Б24, которую можно сделать стандартным функционалом или конструктором бизнес-процессов и без программного кода.', 0);
                         ?>
                     </div>
                 </section>
                 <section>
                     <div>
                         <?php
-                        $text_feedback = 'Что понравилось на первых уроках. Отличные первые уроки, только положительные эмоции, полная вовлеченность и обратная связь от преподавателя';
-                        $array_feedback = explode(' ', $text_feedback);//преобразовываем строку в массив
-                        $count_vowel_letters1 = 0;//счетчик гласных
-                            foreach ($array_feedback as $key => $value)
-                                if ($key % 2 != 0) {//нечетные
-                                    echo mb_substr('<span style="color: darkgreen">' . $value . '</span>', 0) . " ";
-                            } else {
-                                    echo mb_substr('<span style="color: blue">' . $value . '</span>', 0) . " ";
-                            }
-                            foreach ($array_vowel_letters as $value) {
-                                $count_vowel_letters1 += substr_count($text_feedback, $value);
-                            }
-                                    echo "<br>" . "<br>" . "Количество гласных букв в этом разделе:" . $count_vowel_letters1;
-                                    echo "<br>" . "<br>" . "Количество слов в этом разделе:" . $key+1;
+                        countVowel('', 'Что понравилось на первых уроках. Отличные первые уроки, только положительные эмоции, полная вовлеченность и обратная связь от преподавателя', 0);
                         ?>
                     </div>
                 </section>
